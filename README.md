@@ -2,6 +2,25 @@
 
 Programa em MATLAB para projetar Filtros passivos Passa-Baixas e Passa-Altas de 2ª ordem, focados na separação de sinais de áudio. Inclui a seleção automática de componentes reais de prateleira e a validação gráfica do projeto teórico.
 
+## Como Utilizar
+
+### Pré-requisitos
+Para executar a simulação corretamente, você precisará de:
+* **MATLAB** instalado em sua máquina.
+* **Control System Toolbox** instalada (necessária para as funções `tf` e `bode`).
+
+### Passo a Passo da Simulação
+1. Faça o download ou clone este repositório para o seu computador.
+2. Abra o arquivo principal do script `.m` no MATLAB.
+3. Execute o código clicando em **Run** no painel superior.
+4. O programa solicitará a interação no *Command Window*. Digite os valores numéricos do seu projeto e pressione `Enter`:
+   * Frequência de corte.
+   * Impedância da carga.
+5. O script finalizará a execução automaticamente. 
+
+### Resultados Esperados
+Ao final da execução, o console exibirá os valores exatos calculados (Teóricos e Reais) juntamente com a margem de erro. Simultaneamente, o MATLAB abrirá duas novas janelas contendo os Diagramas de Bode para a sua análise visual.
+
 # Circuito do Filtro Passa-baixa
 ![Circuito do Filtro Passa-baixa](lowpass_filter.png)
 
@@ -40,11 +59,11 @@ $$L = \frac{R\sqrt{2}}{\omega_c}$$
 
 O código desenvolvido automatiza o cálculo e a validação do projeto. A lógica está dividida entre as seguintes etapas:  
 
-1. **Variáveis de Inicialização:** Pede para o usuário informar a frequência de corte em Hertz e o impedância da carga em Ohm.
+1. **Variáveis de Inicialização:** Pede para o usuário informar a frequência de corte em Hertz e a impedância da carga em Ohms.
 2. **Vetores de L e C:** Inicializa dois vetores guardando os valores comerciais de indutância e capacitância.
-3. **Cálculo de L e C:** Usa as expressões encontradas para cálcular L e C e percorre o vetor dos valores reais buscando a menor diferença com os valores calculados.
-4. **Cálculo das diferenças:** Mostra a diferença entre os valores cálculados e reais dos componentes e da frequência de corte.
-5. **Diagramas de Bode:** Usa as funções de transferência encontradas para plotar os gráficos que mostram o comportamento esperado com os componentes cálculados e o real com os componentes comerciais.
+3. **Cálculo de L e C:** Usa as expressões encontradas para calcular L e C e percorre o vetor dos valores reais buscando a menor diferença com os valores calculados.
+4. **Cálculo das diferenças:** Mostra a diferença entre os valores calculados e reais dos componentes e da frequência de corte.
+5. **Diagramas de Bode:** Usa as funções de transferência encontradas para plotar os gráficos que mostram o comportamento esperado com os componentes calculados e o real com os componentes comerciais.
 
 ---
 
@@ -52,15 +71,16 @@ O código desenvolvido automatiza o cálculo e a validação do projeto. A lógi
 
 Seguindo as instruções do trabalho, foi utilizado o programa para os parâmetros de entrada $f = 2kHz$ e $R = 8ohms$ e obtivemos os seguintes resultados:
 
+```text
 Indutância Teorico (L): 0.90 mH  
 Indutância Real: 0.82 mH  
 Capacitância Teorico (C): 7.03 μF  
 Capacitancia Real: 6.80 μF  
   
-Diferença entre os indutores: 0.08mH  
-Diferença entre os capacitores: 0.23μF  
-Diferença na frequência de corte: 131.37Hz  
-
+Diferença entre os indutores: 0.08 mH  
+Diferença entre os capacitores: 0.23 μF  
+Diferença na frequência de corte: 131.37 Hz  
+```
 ---
 
 ## Gráficos de Bode
