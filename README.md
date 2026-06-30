@@ -22,7 +22,7 @@ Para executar a simulação corretamente, você precisará de:
 Ao final da execução, o console exibirá os valores exatos calculados (Teóricos e Reais) juntamente com a margem de erro. Simultaneamente, o MATLAB abrirá duas novas janelas contendo os Diagramas de Bode para a sua análise visual.
 
 # Circuito do Filtro Passa-baixa
-![Circuito do Filtro Passa-baixa](lowpass_filter.png)
+![Circuito do Filtro Passa-baixa](images/lowpass_filter.png)
 
 ### Função de transferência obtida a partir da análise desse circuito
 
@@ -31,7 +31,7 @@ $$\frac{\frac{1}{LC}}{(j\omega)^2 + \frac{1}{RC}j\omega + \frac{1}{LC}}$$
 ---
 
 # Circuito do Filtro Passa-alta
-![Circuito do Filtro Passa-alta](highpass_filter.png)
+![Circuito do Filtro Passa-alta](images/highpass_filter.png)
 
 ### Função de transferência obtida a partir da análise desse circuito
 
@@ -86,8 +86,8 @@ Diferença na frequência de corte: 131.37 Hz
 ## Gráficos de Bode
 
 ### Passa-baixa
-![Gráfico de Bode - Passa-baixa](bode_lowpass.svg)
+![Gráfico de Bode - Passa-baixa](images/bode_lowpass.svg)
 
 ### Passa-alta
-![Gráfico de Bode - Passa-alta](bode_highpass.svg)
+![Gráfico de Bode - Passa-alta](images/bode_highpass.svg)
 
