@@ -75,8 +75,11 @@ Dpbr = [1, 1/(z * c_real), 1/(l_real * c_real)];
 H_pbr = tf(Npbr, Dpbr);
 
 % Plot
+bode_opt = bodeoptions;
+bode_opt.FreqUnits = 'Hz';
+
 figure;
-bode(H_pbt, H_pbr);
+bode(H_pbt, H_pbr, bode_opt);
 title("Diagrama de Bode - Filtro Passa-baixa");
 legend("Teórico", "Real");
 grid on;
@@ -97,7 +100,7 @@ Dpar = [1, 1/(z * c_real), 1/(l_real * c_real)];
 Hpar = tf(Npar, Dpar);
 
 figure;
-bode(Hpat, Hpar);
+bode(Hpat, Hpar, bode_opt);
 title("Diagrama de Bode - Filtro Passa-alta");
 legend("Teórico", "Real");
 
