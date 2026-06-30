@@ -2,6 +2,33 @@
 
 Programa em MATLAB para projetar Filtros passivos Passa-Baixas e Passa-Altas de 2ª ordem, focados na separação de sinais de áudio. Inclui a seleção automática de componentes reais de prateleira e a validação gráfica do projeto teórico.
 
+---
+
+## Autor
+**Autor:** Gustavo Carturani
+
+---
+
+## Problema
+Sistemas de áudio de alta fidelidade necessitam direcionar faixas específicas de frequência para os alto-falantes corretos (frequências graves para o *woofer* e agudas para o *tweeter*). O desafio prático não é apenas projetar filtros que realizem essa separação, mas também adaptar esse projeto ideal para a realidade, lidando com o impacto de utilizar componentes limitados aos valores comerciais.
+
+---
+
+## Definição de Objetivos
+O objetivo deste projeto é desenvolver um algoritmo capaz de automatizar o dimensionamento e simulação gráfica de uma rede de separação de frequências utilizando componentes do mundo real.
+
+---
+
+## Especificações do Projeto
+
+**Especificações adotadas:**
+* **Tipologia:** Filtros Butterworth de 2ª ordem (Passa-Baixas e Passa-Altas).
+* **Frequência de Corte:** 2000 Hz.
+* **Impedância da Carga:** 8 Ohms.
+* **Restrição:** O sistema deve obrigatoriamente aproximar as indutâncias e capacitâncias ideais para os valores comerciais tabelados mais próximos.
+
+---
+
 ## Como Utilizar
 
 ### Pré-requisitos
@@ -21,27 +48,31 @@ Para executar a simulação corretamente, você precisará de:
 ### Resultados Esperados
 Ao final da execução, o console exibirá os valores exatos calculados (Teóricos e Reais) juntamente com a margem de erro. Simultaneamente, o MATLAB abrirá duas novas janelas contendo os Diagramas de Bode para a sua análise visual.
 
-# Circuito do Filtro Passa-baixa
+---
+
+# Desenvolvimento do Projeto
+
+## Circuito do Filtro Passa-baixa
 ![Circuito do Filtro Passa-baixa](images/lowpass_filter.png)
 
 ### Função de transferência obtida a partir da análise desse circuito
 
-$$\frac{\frac{1}{LC}}{(j\omega)^2 + \frac{1}{RC}j\omega + \frac{1}{LC}}$$
+$$H(j\omega) = \frac{\frac{1}{LC}}{(j\omega)^2 + \frac{1}{RC}j\omega + \frac{1}{LC}}$$
 
 ---
 
-# Circuito do Filtro Passa-alta
+## Circuito do Filtro Passa-alta
 ![Circuito do Filtro Passa-alta](images/highpass_filter.png)
 
 ### Função de transferência obtida a partir da análise desse circuito
 
-$$\frac{(j\omega)^2}{(j\omega)^2 + \frac{1}{RC}j\omega + \frac{1}{LC}}$$
+$$H(j\omega) = \frac{(j\omega)^2}{(j\omega)^2 + \frac{1}{RC}j\omega + \frac{1}{LC}}$$
 
 ---
 
 ### Equação Geral da Função de Transferência
 
-$$\frac{\omega_c^2}{(j\omega)^2 + \frac{\omega_c}{Q}j\omega + \omega_c^2}$$
+$$H(j\omega) = \frac{\omega_c^2}{(j\omega)^2 + \frac{\omega_c}{Q}j\omega + \omega_c^2}$$
 
 Comparando a função de transferência do passa-baixa com a equação geral, conseguimos extrair duas expressões.  
 
